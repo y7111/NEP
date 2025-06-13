@@ -54,8 +54,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Interface" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -87,7 +87,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/image" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -100,11 +100,14 @@
     <property name="recentsLimit" value="5" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\test\src\image" />
+    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.nep.service" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.NepsMain">
+  <component name="RunManager" selected="Application.NepmMain">
     <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -146,8 +149,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NepsMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.nep.NepsMain" />
+    <configuration name="NepgMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.nep.NepgMain" />
       <module name="test" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -160,13 +163,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.nep.test.Test2" />
+    <configuration name="NepmMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.nep.NepmMain" />
       <module name="test" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.nep.test.*" />
+          <option name="PATTERN" value="com.nep.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -174,13 +177,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.nep.test.Test3" />
+    <configuration name="NepsMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.nep.NepsMain" />
       <module name="test" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.nep.test.*" />
+          <option name="PATTERN" value="com.nep.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -255,11 +258,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.NepmMain" />
+        <item itemvalue="Application.NepgMain" />
         <item itemvalue="Application.NepsMain" />
-        <item itemvalue="Application.Test5" />
         <item itemvalue="Application.Test4" />
-        <item itemvalue="Application.Test3" />
-        <item itemvalue="Application.Test2" />
+        <item itemvalue="Application.Test5" />
       </list>
     </recent_temporary>
   </component>
@@ -292,6 +295,7 @@
       <workItem from="1749637254355" duration="10176000" />
       <workItem from="1749825466217" duration="1553000" />
       <workItem from="1749827110677" duration="13000" />
+      <workItem from="1749827302206" duration="6203000" />
     </task>
     <servers />
   </component>
@@ -319,22 +323,22 @@
       <screen x="0" y="0" width="1600" height="952" />
     </state>
     <state x="621" y="227" key="FileChooserDialogImpl/0.0.1600.952@0.0.1600.952" timestamp="1748956042117" />
-    <state width="1558" height="182" key="GridCell.Tab.0.bottom" timestamp="1749827030113">
+    <state width="1558" height="182" key="GridCell.Tab.0.bottom" timestamp="1749833556068">
       <screen x="0" y="0" width="1600" height="952" />
     </state>
-    <state width="1558" height="182" key="GridCell.Tab.0.bottom/0.0.1600.952@0.0.1600.952" timestamp="1749827030113" />
-    <state width="1558" height="182" key="GridCell.Tab.0.center" timestamp="1749827030113">
+    <state width="1558" height="182" key="GridCell.Tab.0.bottom/0.0.1600.952@0.0.1600.952" timestamp="1749833556068" />
+    <state width="1558" height="182" key="GridCell.Tab.0.center" timestamp="1749833556068">
       <screen x="0" y="0" width="1600" height="952" />
     </state>
-    <state width="1558" height="182" key="GridCell.Tab.0.center/0.0.1600.952@0.0.1600.952" timestamp="1749827030113" />
-    <state width="1558" height="182" key="GridCell.Tab.0.left" timestamp="1749827030113">
+    <state width="1558" height="182" key="GridCell.Tab.0.center/0.0.1600.952@0.0.1600.952" timestamp="1749833556068" />
+    <state width="1558" height="182" key="GridCell.Tab.0.left" timestamp="1749833556068">
       <screen x="0" y="0" width="1600" height="952" />
     </state>
-    <state width="1558" height="182" key="GridCell.Tab.0.left/0.0.1600.952@0.0.1600.952" timestamp="1749827030113" />
-    <state width="1558" height="182" key="GridCell.Tab.0.right" timestamp="1749827030113">
+    <state width="1558" height="182" key="GridCell.Tab.0.left/0.0.1600.952@0.0.1600.952" timestamp="1749833556068" />
+    <state width="1558" height="182" key="GridCell.Tab.0.right" timestamp="1749833556068">
       <screen x="0" y="0" width="1600" height="952" />
     </state>
-    <state width="1558" height="182" key="GridCell.Tab.0.right/0.0.1600.952@0.0.1600.952" timestamp="1749827030113" />
+    <state width="1558" height="182" key="GridCell.Tab.0.right/0.0.1600.952@0.0.1600.952" timestamp="1749833556068" />
     <state width="1558" height="313" key="GridCell.Tab.1.bottom" timestamp="1749043864086">
       <screen x="0" y="0" width="1600" height="952" />
     </state>
@@ -355,10 +359,10 @@
       <screen x="0" y="0" width="1600" height="952" />
     </state>
     <state x="321" y="47" key="SettingsEditor/0.0.1600.952@0.0.1600.952" timestamp="1748955558211" />
-    <state x="524" y="296" key="com.intellij.ide.util.TipDialog" timestamp="1749827110602">
+    <state x="524" y="296" key="com.intellij.ide.util.TipDialog" timestamp="1749827301715">
       <screen x="0" y="0" width="1600" height="952" />
     </state>
-    <state x="524" y="296" key="com.intellij.ide.util.TipDialog/0.0.1600.952@0.0.1600.952" timestamp="1749827110602" />
+    <state x="524" y="296" key="com.intellij.ide.util.TipDialog/0.0.1600.952@0.0.1600.952" timestamp="1749827301715" />
     <state x="543" y="103" key="refactoring.ChangeSignatureDialog" timestamp="1749043522466">
       <screen x="0" y="0" width="1600" height="952" />
     </state>

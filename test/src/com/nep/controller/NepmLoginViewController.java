@@ -1,5 +1,9 @@
 package com.nep.controller;
 
+import com.nep.NepmMain;
+import com.nep.service.AdminService;
+import com.nep.service.impl.AdminServiceImpl;
+import com.nep.util.JavafxUtil;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -30,4 +34,14 @@ public class NepmLoginViewController {
     public void setTxt_password(PasswordField txt_password) {
         this.txt_password = txt_password;
     }
+
+    public void login(){
+        boolean isLogin = adminService.login(txt_id.getText(), txt_password.getText());
+        if(isLogin){
+            NepmMainViewController.primaryStage = primaryStage;
+            JavafxUtil.showStage(NepmMain.class,"view/NepmMainView.fxml", primaryStage,"东软环保公众监督平台-管理端-主功能界面");
+        }else{
+            JavafxUtil.showAlert(primaryStage, "登录失败", "用户名密码错误", "请重新输入用户名和密码","warn");
+        }
+}
 }

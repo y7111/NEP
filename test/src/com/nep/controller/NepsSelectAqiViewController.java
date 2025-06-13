@@ -178,7 +178,7 @@ public class NepsSelectAqiViewController implements Initializable {
         });
     }
     public void saveFeedBack(){
-       /** AqiFeedback afb = new AqiFeedback();
+        AqiFeedback afb = new AqiFeedback();
         afb.setAddress(txt_address.getText());
         afb.setAfName(supervisor.getRealName());
         afb.setProviceName(txt_province.getValue());
@@ -191,7 +191,7 @@ public class NepsSelectAqiViewController implements Initializable {
         JavafxUtil.showAlert(primaryStage, "反馈信息成功", "您的预估AQI信息提交成功", "感谢您的反馈!","info");
         NepsFeedbackViewController.primaryStage = primaryStage;
         JavafxUtil.showStage(NepsMain.class,"view/NepsFeedbackView.fxml", primaryStage,"东软环保公众监督平台-公众监督员端-AQI反馈数据列表");
-*/
+
     }
 
     public void feedBackList(){
