@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="650.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nep.controller.NepsSelectAqiViewController">
+   <children>
+      <Label layoutX="209.0" layoutY="22.0" text="公众监督员信息反馈">
+         <font>
+            <Font name="System Bold Italic" size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="85.0" layoutY="309.0" text="反馈详细信息">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <TableView fx:id="txt_tableView" layoutX="85.0" layoutY="97.0" prefHeight="200.0" prefWidth="730.0" />
+      <Label layoutX="127.0" layoutY="357.0" text="所在省" />
+      <Label layoutX="495.0" layoutY="357.0" text="所在市" />
+      <Label layoutX="121.0" layoutY="405.0" text="具体地址" />
+      <Label layoutX="121.0" layoutY="454.0" text="预估等级" />
+      <Label layoutX="85.0" layoutY="496.0" text="请填写反馈信息" />
+      <ComboBox fx:id="txt_province" layoutX="262.0" layoutY="357.0" prefHeight="8.0" prefWidth="150.0" />
+      <ComboBox fx:id="txt_city" layoutX="593.0" layoutY="357.0" prefHeight="8.0" prefWidth="150.0" />
+      <ComboBox fx:id="txt_level" layoutX="262.0" layoutY="454.0" prefHeight="8.0" prefWidth="150.0" />
+      <TextField fx:id="txt_information" layoutX="262.0" layoutY="498.0" prefHeight="138.0" prefWidth="346.0" />
+      <TextField fx:id="txt_address" layoutX="262.0" layoutY="397.0" prefHeight="48.0" prefWidth="150.0" />
+      <Label layoutX="668.0" layoutY="37.0" text="名字：" />
+      <Button layoutX="700.0" layoutY="446.0" mnemonicParsing="false" onAction="#feedBackList" text="查询反馈数据" />
+      <Button layoutX="704.0" layoutY="558.0" mnemonicParsing="false" onAction="#saveFeedBack" text="提交反馈数据" />
+      <Label fx:id="label_realName" layoutX="772.0" layoutY="37.0" />
+   </children>
+</AnchorPane>
