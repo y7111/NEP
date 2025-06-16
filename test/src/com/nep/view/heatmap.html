@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title>东三省AQI热力图</title>
+    <style type="text/css">
+        html { height: 100% }
+        body { height: 100%; margin: 0px; padding: 0px; font-family: "微软雅黑"; }
+        #container { height: 100% }
+    </style>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=你的百度地图AK"></script>
+    <script type="text/javascript" src="https://api.map.baidu.com/library/DrawingManager/1.4/src/DrawingManager_min.js"></script>
+</head>
+<body>
+<div id="container"></div>
+<script type="text/javascript">
+    var map = null;
+    var cityPolygons = {}; // 存储城市多边形对象，以便后续着色
+
+    // AQI颜色映射 (从优到严重污染)
+    var AQI_COLORS = {
+        "优": "#02E300",         // 绿色
+        "良": "#FFFF00",         // 黄色
+        "轻度污染": "#FF7E00",   // 橙色
+        "中度污染": "#FE0000",   // 红色
+        "重度污染": "#98004B",   // 紫色
+        "严重污染": "#7E0123",   // 褐红色
+        "无数据": "#CCCCCC"       // 灰色
+    };
+
+    // 行政区划 GeoJSON 数据 (简化示例，实际需要从百度地图API获取或加载本地文件)
+    // 这些 GeoJSON 数据通常包含每个省或市的边界坐标
+    // 为了简化，这里先定义一个包含东三省城市的简单结构，实际边界需要通过API获取
+    // 百度地图API的行政区划功能可以直接获取这些边界
+    // 示例数据结构 (实际数据会非常长，这里仅为示意)
+    var northeastGeoJson = {
+        "辽宁省": {
+            "沈阳市": [], // 实际是坐标数组
+            "大连市": [],
+            // ... 其他城市
+        },
+        "吉林省": {
+            "长春市": [],
+            // ...
+        },
+        "黑龙江省": {
+            "哈尔滨市": [],
+            // ...
+        }
+    };
+
+    // 注意：这里需要你获取东三省所有市的真实GeoJSON边界数据。
+    // 最常见的方式是使用百度地图的行政区划查询服务。
+    // 例如：使用 new BMap.Boundary() 来获取行政区划轮廓点
+    // 由于直接在此生成所有城市的精确GeoJSON非常困难且庞大，
+    // 我们假设通过 Baidu Map API 的 BMap.Boundary() 来动态获取并绘制。
+
+    function initializeMap() {
+        map = new BMap.Map("container"); // 创建地图实例
+        var point = new BMap.Point(125.35, 43.88); // 东三省中心点 (长春市)
+        map.centerAndZoom(point, 7); // 设置中心点和缩放级别
+        map.enableScrollWheelZoom(true); // 开启鼠标滚轮缩放
+
+        // 加载行政区划边界并绘制多边形
+        loadAndDrawProvinces();
+    }
+
+    function loadAndDrawProvinces() {
+        var bd = new BMap.Boundary();
+        var provinces = ["辽宁省", "吉林省", "黑龙江省"]; // 东三省
+
+        provinces.forEach(function(provinceName) {
+            bd.get(provinceName, function(rs){ // 获取行政区域的边界
+                var count = rs.boundaries.length; // 行政区域的边界有多少个
+                if (count === 0) {
+                    console.log('未找到 ' + provinceName + ' 的边界');
+                    return;
+                }
+                var ply = new BMap.Polygon(rs.boundaries[0], {strokeWeight: 2, strokeColor: "#555555", fillColor: AQI_COLORS["无数据"], fillOpacity: 0.8}); // 创建多边形
+                map.addOverlay(ply); // 添加覆盖物
+                cityPolygons[provinceName] = ply; // 存储多边形对象
+
+                // 可以为每个省份多边形添加点击事件，显示省份名称等
+                ply.addEventListener('click', function(e) {
+                    console.log(provinceName + " 被点击");
+                    // 可以在这里调用JavaFX方法，例如：
+                    // JavaApp.onProvinceClicked(provinceName);
+                });
+            });
+        });
+    }
+
+    // --- JavaFX 调用 JavaScript 函数 ---
+
+    // 用于接收 JavaFX 传递的污染数据并着色地图
+    // data 格式示例：[{cityName: "沈阳市", aqiLevel: "中度污染"}, {cityName: "长春市", aqiLevel: "良"}]
+    function updateHeatmap(pollutionData) {
+        console.log("接收到污染数据：", pollutionData);
+        // 将所有多边形颜色重置为默认值
+        for (var key in cityPolygons) {
+            if (cityPolygons.hasOwnProperty(key)) {
+                cityPolygons[key].setFillColor(AQI_COLORS["无数据"]); // 重置为灰色
+            }
+        }
+
+        if (!pollutionData || pollutionData.length === 0) {
+            console.log("无数据可用于更新热力图。");
+            return;
+        }
+
+        pollutionData.forEach(function(item) {
+            // 查找对应的省份多边形并着色
+            // 注意：这里需要精确匹配城市名到多边形，
+            // 如果 GeoJSON 是省份级别，则需要根据城市的平均值来着色省份。
+            // 如果需要精确到市，那么 loadAndDrawProvinces() 需要绘制市的边界。
+
+            // 简化处理：由于 Boundary API 默认是省份，我们按省份来着色。
+            // 假设 pollutionData 已经是按省份汇总的 AQI Level
+            // 如果 pollutionData 提供了市级AQI，你可能需要一个映射关系或在loadAndDrawProvinces中绘制市级多边形
+            var polygon = null;
+            // 简化的城市到省份的映射 (如果数据是城市级别，但绘制是省份级别)
+            var cityToProvinceMap = {};
+            for (var prov in northeastGeoJson) {
+                for (var city in northeastGeoJson[prov]) {
+                    cityToProvinceMap[city] = prov;
+                }
+            }
+
+            var provinceName = item.provinceName; // 假设数据中包含provinceName
+            if (!provinceName) {
+                provinceName = cityToProvinceMap[item.cityName]; // 尝试从城市名推断省份名
+            }
+
+            polygon = cityPolygons[provinceName];
+
+            if (polygon) {
+                var color = AQI_COLORS[item.aqiLevel] || AQI_COLORS["无数据"];
+                polygon.setFillColor(color);
+                console.log("设置 " + provinceName + " 的颜色为 " + color);
+            } else {
+                console.log("未找到对应的多边形：", item);
+            }
+        });
+    }
+
+    // 页面加载完成后初始化地图
+    window.onload = initializeMap;
+
+    // --- JavaFX 和 JavaScript 之间的通信示例 (可选) ---
+    // JavaFX 调用此函数，并传递一个回调对象
+    function setJavaApp(javaApp) {
+        window.JavaApp = javaApp; // 将JavaFX对象暴露给JavaScript
+    }
+    // JavaScript 调用 JavaFX 方法示例 (需要JavaFX端注册)
+    // 例如：JavaApp.logMessage("JavaScript init complete.");
+
+</script>
+</body>
+</html>
