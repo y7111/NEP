@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nep.controller.NepmAqiInfoViewController"
+            stylesheets="@../view/modern_style.css">
+    <children>
+        <Label layoutX="269.0" layoutY="20.0" text="AQI反馈数据查询">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
+
+        <TableView fx:id="txt_tableView" layoutX="25.0" layoutY="65.0" prefHeight="330.0" prefWidth="750.0">
+        </TableView>
+
+        <Button fx:id="exportAqiInfoButton" layoutX="645.0" layoutY="405.0" mnemonicParsing="false" onAction="#handleExportAqiInfo" text="导出反馈数据" />
+
+    </children>
+</AnchorPane>

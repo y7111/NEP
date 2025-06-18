@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.nep.controller.NepmHeatMapViewController"
+            stylesheets="@../view/modern_style.css"> <children>
+    <Label fx:id="mainTitleLabel" layoutX="350.0" layoutY="20.0" text="东三省AQI污染热力图">
+        <font>
+            <Font name="System Bold" size="24.0" />
+        </font>
+    </Label>
+
+    <Label layoutX="50.0" layoutY="80.0" text="选择月份:">
+        <font>
+            <Font size="14.0" />
+        </font>
+    </Label>
+    <ComboBox fx:id="monthComboBox" layoutX="120.0" layoutY="78.0" prefWidth="100.0" promptText="选择月份" />
+    <Button layoutX="240.0" layoutY="78.0" mnemonicParsing="false" onAction="#showHeatmap" text="显示热力图" />
+
+    <Pane fx:id="mapPane" layoutX="50.0" layoutY="120.0" prefHeight="450.0" prefWidth="800.0" style="-fx-border-color: #CCCCCC;">
+    </Pane>
+
+</children>
+</AnchorPane>
