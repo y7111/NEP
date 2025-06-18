@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="650.0" stylesheets="@../view/modern_style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nep.controller.NepgLoginViewController"> <children>
+    <Label fx:id="titleLabel" layoutX="181.0" layoutY="56.0" text="环保公众监督平台" />
+    <Label fx:id="subtitleLabel" layoutX="285.0" layoutY="129.0" prefHeight="29.0" prefWidth="167.0" text="网格员端" />
+
+    <Label layoutX="167.0" layoutY="198.0" text="登录账号:" />
+
+    <Label layoutX="167.0" layoutY="264.0" text="登录密码:" />
+    <TextField fx:id="txt_id" layoutX="264.0" layoutY="196.0" prefHeight="24.0" prefWidth="220.0" />
+    <PasswordField fx:id="txt_password" layoutX="264.0" layoutY="262.0" prefHeight="23.0" prefWidth="220.0" />
+    <Button layoutX="379.0" layoutY="349.0" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="90.0" text="登录" />
+
+</children>
+
+</AnchorPane>

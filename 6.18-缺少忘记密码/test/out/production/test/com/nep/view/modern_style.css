@@ -1,0 +1,194 @@
+/* modern_style.css */
+
+/* 1. 全局背景和字体设置 */
+.root {
+    -fx-background-color: linear-gradient(to bottom, #e0f2f7, #bbdefb); /* 渐变蓝 */
+    -fx-font-family: "Microsoft YaHei UI", "Arial"; /* 使用更现代的中文字体 */
+}
+
+/* 2. 登录界面的特定标题ID样式 */
+/* 对应 NepmLoginView.fxml 中的 fx:id="titleLabel" */
+#titleLabel {
+    -fx-font-size: 42px; /* 标题更大 */
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50; /* 深蓝色，更沉稳 */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 2); /* 简单阴影 */
+}
+
+/* 对应 NepmLoginView.fxml 中的 fx:id="subtitleLabel" */
+#subtitleLabel {
+    -fx-font-size: 22px; /* 副标题稍大 */
+    -fx-font-weight: bold;
+    -fx-text-fill: #34495e; /* 比主标题稍浅的蓝色 */
+}
+
+/* 3. 一般标签样式和通用标题类样式 */
+.label {
+    -fx-font-size: 15px;
+    -fx-text-fill: #34495e; /* 深灰蓝色 */
+}
+
+/* 通用主标题类样式，例如用于 NepgAqiConfirmView.fxml 的主标题 */
+.label-title {
+    -fx-font-size: 24px; /* 调整为24px */
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+    -fx-padding: 10px 0;
+}
+
+/* 界面内小标题或区域标题的样式 */
+.section-title {
+    -fx-font-size: 16px; /* 例如：用于 Pane 内的小标题 "AQI实测数据信息" */
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-padding: 5px 0;
+}
+
+/* 4. 输入框 TextField, PasswordField, ComboBox的文本部分 */
+.text-field, .password-field, .combo-box .text-field { /* 统一 ComboBox 内部文本字段样式 */
+    -fx-background-color: #f0f8ff, white, white; /* 多层背景，模拟边框和内阴影 */
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 5px; /* 圆角 */
+    -fx-border-color: #b0c4de; /* 浅蓝色边框 */
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-padding: 8px 10px; /* 内边距 */
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: #a0a0a0; /* 占位符颜色 */
+}
+
+/* 输入框聚焦时的样式 */
+.text-field:focused, .password-field:focused, .combo-box .text-field:focused { /* 统一 ComboBox 内部文本字段聚焦样式 */
+    -fx-border-color: #4CAF50; /* 聚焦时边框变绿 */
+    -fx-effect: innershadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 0); /* 内部阴影 */
+}
+
+/* 5. 按钮样式 */
+.button {
+    -fx-background-color: #4CAF50; /* 绿色背景 */
+    -fx-text-fill: white; /* 白色文字 */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 12px 25px; /* 内边距 */
+    -fx-background-radius: 8px; /* 大圆角 */
+    -fx-border-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 3); /* 阴影 */
+    -fx-cursor: hand; /* 鼠标悬停时变为手型 */
+}
+
+/* 按钮悬停时的样式 */
+.button:hover {
+    -fx-background-color: #43A047; /* 悬停时颜色变深 */
+    -fx-scale-x: 1.02; /* 稍微放大 */
+    -fx-scale-y: 1.02;
+}
+
+/* 按钮按下时的样式 */
+.button:pressed {
+    -fx-background-color: #388E3C; /* 按下时颜色更深 */
+    -fx-translate-y: 1px; /* 稍微下移，模拟按下效果 */
+}
+
+/* 6. ComboBox (下拉框) 样式 */
+.combo-box {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-border-color: #b0c4de; /* 浅蓝色边框 */
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: #a0a0a0;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.combo-box .arrow {
+    -fx-background-color: #34495e; /* 箭头颜色 */
+}
+
+.combo-box .list-cell {
+    -fx-background-color: white;
+    -fx-text-fill: #333333;
+    -fx-font-size: 14px;
+}
+
+.combo-box .list-cell:filled:hover {
+    -fx-background-color: #e0e0e0; /* 列表项悬停背景 */
+}
+
+.combo-box .list-cell:filled:selected {
+    -fx-background-color: #bbdefb; /* 列表项选中背景 */
+    -fx-text-fill: #333333;
+}
+
+/* ComboBox 聚焦时的样式 */
+.combo-box:focused {
+    -fx-border-color: #4CAF50; /* 聚焦时边框变绿 */
+    -fx-effect: innershadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 0); /* 内部阴影 */
+}
+
+/* 7. 面板样式 (Pane, AnchorPane, VBox, HBox等作为主要布局容器) */
+/* 注意：这个样式可能会被 NepmAqiAssignViewController.java 中直接设置的 -fx-border-color 覆盖 */
+.pane, .anchor-pane, .vbox, .hbox {
+    -fx-background-color: rgba(255, 255, 255, 0.9); /* 半透明白色背景 */
+    -fx-border-color: #dddddd;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px; /* 圆角边框 */
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 0); /* 柔和阴影 */
+    -fx-padding: 20px;
+}
+
+/* 地图面板 (fx:id="map-pane") 的特定样式 */
+#map-pane { /* 对应 NepmHeatMapViewController.java 中的 fx:id="mapPane" */
+    -fx-background-color: white; /* 白色背景 */
+    -fx-border-color: #CCCCCC; /* 边框颜色 (保持你原有的) */
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px; /* 圆角边框 */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 0); /* 柔和阴影 */
+}
+
+/* 8. 表格视图样式 */
+.table-view {
+    -fx-background-color: #f8f8f8;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.table-view .column-header-background .column-header {
+    -fx-background-color: linear-gradient(to bottom, #d0d3d8, #c4c7cc); /* 表头渐变 */
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #444444;
+    -fx-border-width: 0 1px 1px 0;
+    -fx-border-color: #e0e0e0;
+}
+
+.table-view .table-cell {
+    -fx-padding: 5px;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 0 1px 0;
+    -fx-font-size: 13px;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #fbfbfc;
+}
+
+.table-view .table-row-cell:even {
+    -fx-background-color: #ffffff;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #a7d9ff; /* 选中行背景 */
+    -fx-text-fill: black;
+}
+
+/* 9. ImageView (如果需要通用样式，但通常由FML控制大小) */
+.image-view {
+    /* 例如，如果图片作为背景，可能需要调整fitWidth/fitHeight和preserveRatio */
+}
