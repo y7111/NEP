@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nep.controller.NepmPollutionChartController"  stylesheets="@../view/modern_style.css">
+    <children>
+        <VBox layoutX="10.0" layoutY="10.0" prefHeight="580.0" prefWidth="780.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="200.0" spacing="10.0">
+                    <children>
+                        <Label text="选择城市:" />
+                        <ComboBox fx:id="citySelectionComboBox" prefWidth="150.0" promptText="选择城市" />
+                    </children>
+                </HBox>
+                <LineChart fx:id="aqiLevelLineChart" prefHeight="530.0" prefWidth="780.0">
+                    <xAxis>
+                        <CategoryAxis fx:id="xAxis" side="BOTTOM" label="月份" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis fx:id="yAxis" side="LEFT" label="AQI 等级" />
+                    </yAxis>
+                </LineChart>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
