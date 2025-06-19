@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nep.mobile">
+
+    <application
+        android:name=".NEMobileApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="NEPmobile"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"> <activity
+        android:name=".RoleSelectionActivity"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+
+        <activity android:name=".NepsLoginActivity" />
+        <activity android:name=".NepsRegisterActivity" />
+        <activity android:name=".NepsForgotPasswordPhoneActivity" />
+        <activity android:name=".NepsForgotPasswordAnswerActivity" />
+        <activity android:name=".NepsForgotPasswordResetActivity" />
+        <activity android:name=".NepsSelectAqiActivity" />
+        <activity android:name=".NepsFeedbackListActivity" />
+
+        <activity android:name=".NepgLoginActivity" />
+        <activity android:name=".NepgAqiConfirmActivity" />
+
+        <activity android:name=".NepmLoginActivity" />
+        <activity android:name=".NepmMainActivity" />
+        <activity android:name=".NepmAqiInfoActivity" />
+        <activity android:name=".NepmAqiAssignActivity" />
+        <activity android:name=".NepmConfirmInfoActivity" />
+
+    </application>
+
+</manifest>

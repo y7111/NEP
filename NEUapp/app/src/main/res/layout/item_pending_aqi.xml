@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="编号: " android:textStyle="bold"/>
+        <TextView android:id="@+id/text_pending_id" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ID"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="  反馈者: " android:textStyle="bold"/>
+        <TextView android:id="@+id/text_pending_af_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="名称"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="  时间: " android:textStyle="bold"/>
+        <TextView android:id="@+id/text_pending_date" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="日期"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="预估等级: " android:textStyle="bold"/>
+        <TextView android:id="@+id/text_pending_estimate_grade" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="等级"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="  省区域: " android:textStyle="bold"/>
+        <TextView android:id="@+id/text_pending_province" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="省"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="  市区域: " android:textStyle="bold"/>
+        <TextView android:id="@+id/text_pending_city" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="市"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="具体地址: "
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/text_pending_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="地址详细"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="反馈信息: "
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/text_pending_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="详细信息"/>
+
+</LinearLayout>
