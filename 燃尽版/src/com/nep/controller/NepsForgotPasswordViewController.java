@@ -1,0 +1,54 @@
+package com.nep.controller;
+
+import com.nep.NepsMain;
+import com.nep.entity.Supervisor;
+import com.nep.service.SupervisorService;
+import com.nep.service.impl.SupervisorServiceImpl;
+import com.nep.util.JavafxUtil;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+public class NepsForgotPasswordViewController {
+    @FXML
+    private TextField txt_id;
+
+    // 主舞台
+    public static Stage primaryStage;
+    private SupervisorService supervisorService = new SupervisorServiceImpl();
+    // 不再需要在这里声明 supervisor 变量，因为直接从 service 获取并传递
+    // private Supervisor supervisor;
+
+    /**
+     * 提交手机号，查找用户并跳转到密保问题界面。
+     */
+    public void submitPhone() {
+        String phone = txt_id.getText().trim(); // 获取手机号并去除空格
+        if (phone.isEmpty()) {
+            JavafxUtil.showAlert(primaryStage, "输入错误", "手机号不能为空", "请输入您的手机号。", "warn");
+            return;
+        }
+
+        // 通过 service 层从数据库查找用户
+        Supervisor foundSupervisor = supervisorService.getSupervisorByLoginCode(phone);
+
+        if (foundSupervisor != null) {
+            // 将找到的 supervisor 对象传递给 Answer 控制器
+            NepsForgotPasswordAnswerController.setSupervisor(foundSupervisor);
+            // 传递舞台
+            NepsForgotPasswordAnswerController.setPrimaryStage(primaryStage);
+            // 显示密保问题界面
+            JavafxUtil.showStage(NepsMain.class, "view/NepsForgotPasswordAnswerView.fxml", primaryStage, "忘记密码 - 回答密保问题");
+        } else {
+            JavafxUtil.showAlert(primaryStage, "未找到用户", "未找到该手机号对应的用户", "请检查手机号是否正确", "warn");
+        }
+    }
+
+    /**
+     * 返回登录界面。
+     */
+    public void back() {
+        // 返回登录界面
+        JavafxUtil.showStage(NepsMain.class, "view/NepsLoginView.fxml", primaryStage, "东软环保公众监督平台-公众监督员端");
+    }
+}
